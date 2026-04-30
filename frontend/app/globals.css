@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 183 110 121;
+  --background: 255 248 240;
+  --accent: 45 106 79;
+  --text-primary: 26 26 26;
+  --surface: 255 255 255;
+  --nav-height: 5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @apply bg-background text-textPrimary font-body antialiased;
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(183, 110, 121, 0.18), transparent 36%),
+    radial-gradient(circle at 95% 15%, rgba(45, 106, 79, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 248, 240, 0.98) 0%, rgba(255, 253, 250, 1) 60%, rgba(255, 248, 240, 0.98) 100%);
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(183, 110, 121, 0.28);
+  color: rgb(26 26 26);
+}
+
+.section-container {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-2xl border border-border/70 bg-white/95 shadow-soft;
+  }
+
+  .glass-panel {
+    @apply rounded-3xl border border-white/40 bg-white/55 shadow-panel backdrop-blur-xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-primary/60 bg-white px-5 py-2.5 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl border border-border bg-white/70 px-5 py-2.5 text-sm font-semibold text-textPrimary transition duration-200 hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25;
+  }
+
+  .input-shell {
+    @apply flex items-center rounded-xl border border-border/90 bg-white px-3 text-sm transition duration-200 focus-within:border-primary/70 focus-within:ring-2 focus-within:ring-primary/20;
+  }
+
+  .input-base {
+    @apply w-full bg-transparent px-2.5 py-3 text-sm text-textPrimary outline-none placeholder:text-textSecondary/70;
+  }
+
+  .page-title {
+    @apply font-heading text-4xl tracking-tight sm:text-5xl;
+  }
+
+  .section-title {
+    @apply font-heading text-3xl tracking-tight sm:text-4xl;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary;
+  }
+}
